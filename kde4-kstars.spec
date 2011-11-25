@@ -4,12 +4,12 @@
 Summary:	K Desktop Environment - Desktop planetarium
 Summary(pl_PL.UTF8):	K Desktop Environment - Planetarium
 Name:		kstars
-Version:	4.7.1
+Version:	4.7.3
 Release:	1
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	fe243613d628e28371ea4986f2312d70
+# Source0-md5:	791211270c3565e214e874d8852dfa11
 URL:		http://www.kde.org/
 BuildRequires:	OpenGL-devel
 BuildRequires:	cfitsio
