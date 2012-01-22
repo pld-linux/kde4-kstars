@@ -3,13 +3,13 @@
 
 Summary:	K Desktop Environment - Desktop planetarium
 Summary(pl_PL.UTF8):	K Desktop Environment - Planetarium
-Name:		kstars
-Version:	4.7.3
+Name:		kde4-kstars
+Version:	4.8.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	791211270c3565e214e874d8852dfa11
+# Source0-md5:	3f87bdcb332e9e15c158b0fbeb134755
 URL:		http://www.kde.org/
 BuildRequires:	OpenGL-devel
 BuildRequires:	cfitsio
@@ -18,6 +18,7 @@ BuildRequires:	kde4-kdelibs-devel >= %{version}
 BuildRequires:	libindi-devel
 BuildRequires:	xplanet
 Obsoletes:	kde4-kdeedu-kstars < 4.6.99
+Obsoletes:	kstarts <= 4.8.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -57,7 +58,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir}
 
-%find_lang %{name} --with-kde
+%find_lang %{orgname} --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -65,7 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files -f %{name}.lang
+%files -f %{orgname}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kstars
 %{_desktopdir}/kde4/kstars.desktop
