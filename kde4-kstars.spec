@@ -2,7 +2,7 @@
 %define		orgname		kstars
 
 Summary:	K Desktop Environment - Desktop planetarium
-Summary(pl_PL.UTF8):	K Desktop Environment - Planetarium
+Summary(pl.UTF-8):	K Desktop Environment - Planetarium
 Name:		kde4-kstars
 Version:	4.9.1
 Release:	1
