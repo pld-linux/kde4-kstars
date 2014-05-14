@@ -4,12 +4,12 @@
 Summary:	K Desktop Environment - Desktop planetarium
 Summary(pl.UTF-8):	K Desktop Environment - Planetarium
 Name:		kde4-kstars
-Version:	4.13.0
+Version:	4.13.1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
-# Source0-md5:	cbce9b4299c90fe014a69539c23dc6ec
+# Source0-md5:	ac64167c36a99a12e8cbd286443d500f
 URL:		http://www.kde.org/
 BuildRequires:	OpenGL-devel
 BuildRequires:	automoc4
