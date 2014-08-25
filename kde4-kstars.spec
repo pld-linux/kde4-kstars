@@ -4,19 +4,19 @@
 Summary:	K Desktop Environment - Desktop planetarium
 Summary(pl.UTF-8):	K Desktop Environment - Planetarium
 Name:		kde4-kstars
-Version:	4.13.2
+Version:	4.14.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Science
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
-# Source0-md5:	cb07c42d80dae81cd1c61ef29b95e001
+Source0:	http://download.kde.org/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
+# Source0-md5:	4cbbdcb9e606d0c14d477aa164f6aa12
 URL:		http://www.kde.org/
 BuildRequires:	OpenGL-devel
 BuildRequires:	automoc4
 BuildRequires:	cfitsio-devel >= 3.09
 BuildRequires:	eigen3
 BuildRequires:	kde4-kdelibs-devel >= %{version}
-BuildRequires:	libindi-devel
+BuildRequires:	libindi-devel >= 0.9.8
 BuildRequires:	qt4-build
 BuildRequires:	xplanet
 Obsoletes:	kde4-kdeedu-kstars < 4.6.99
@@ -74,6 +74,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/kstars.desktop
 %{_datadir}/config.kcfg/kstars.kcfg
 %{_datadir}/config/kstars.knsrc
+%{_datadir}/appdata/kstars.appdata.xml
 %{_datadir}/apps/kstars
 %{_iconsdir}/hicolor/*x*/apps/kstars.png
 %{_iconsdir}/hicolor/scalable/apps/kstars.svgz
