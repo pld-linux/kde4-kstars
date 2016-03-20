@@ -1,3 +1,4 @@
+# TODO: WCSLib, astronometry.net, qjson
 %define		_state		stable
 %define		orgname		kstars
 
@@ -5,8 +6,8 @@ Summary:	K Desktop Environment - Desktop planetarium
 Summary(pl.UTF-8):	K Desktop Environment - Planetarium
 Name:		kde4-kstars
 Version:	4.14.3
-Release:	2
-License:	GPL
+Release:	3
+License:	GPL v2+
 Group:		X11/Applications/Science
 Source0:	http://download.kde.org/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
 # Source0-md5:	13cb96789e3be237239e04c027b45c0b
@@ -49,14 +50,13 @@ horyzont i ekliptykę.
 %build
 install -d build
 cd build
-%cmake \
-	..
+%cmake ..
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} -C build/ install \
+%{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir}
 
@@ -65,8 +65,8 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files -f %{orgname}.lang
 %defattr(644,root,root,755)
