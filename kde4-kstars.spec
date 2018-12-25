@@ -1,4 +1,4 @@
-# TODO: WCSLib, astronometry.net, qjson
+# TODO: astrometry.net
 %define		_state		stable
 %define		orgname		kstars
 
@@ -6,7 +6,7 @@ Summary:	K Desktop Environment - Desktop planetarium
 Summary(pl.UTF-8):	K Desktop Environment - Planetarium
 Name:		kde4-kstars
 Version:	4.14.3
-Release:	4
+Release:	5
 License:	GPL v2+
 Group:		X11/Applications/Science
 Source0:	http://download.kde.org/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
@@ -15,11 +15,19 @@ URL:		http://www.kde.org/
 BuildRequires:	OpenGL-devel
 BuildRequires:	automoc4
 BuildRequires:	cfitsio-devel >= 3.09
-BuildRequires:	eigen3
+BuildRequires:	eigen3 >= 3
 BuildRequires:	kde4-kdelibs-devel >= %{version}
 BuildRequires:	libindi-devel >= 0.9.8
-BuildRequires:	qt4-build
+# for tests only
+#BuildRequires:	qjson-devel
+BuildRequires:	qt4-build >= 4
+BuildRequires:	wcslib-devel
 BuildRequires:	xplanet
+# solve-field program (to achieve sub-arcsecond GOTO tracking and determine polar alignment errors in the mount)
+#Suggests	astrometrynet
+# for updating supernovae data
+Suggests:	python-PyKDE4
+Suggests:	xplanet
 Obsoletes:	kde4-kdeedu-kstars < 4.6.99
 Obsoletes:	kstarts <= 4.8.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -60,6 +68,9 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir}
 
+# no headers installed
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libhtmesh.a
+
 %find_lang %{orgname} --with-kde
 
 %clean
@@ -70,6 +81,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{orgname}.lang
 %defattr(644,root,root,755)
+%doc AUTHORS ChangeLog README* TODO
 %attr(755,root,root) %{_bindir}/kstars
 %{_desktopdir}/kde4/kstars.desktop
 %{_datadir}/config.kcfg/kstars.kcfg
